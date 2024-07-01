@@ -28,11 +28,11 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         charmander: {
             name: ["Charmander", "Charmeleon", "Charizard"],
-            img: ["/Local/PokeMath/images/charmander.png", "/Local/PokeMath/images/charmeleon.png", "/Local/PokeMath/images/charizard.png"]
+            img: ["/images/charmander.png", "/images/charmeleon.png", "/images/charizard.png"]
         },
         squirtle: {
             name: ["Squirtle", "Wartortle", "Blastoise"],
-            img: ["/Local/PokeMath/images/squirtle.png", "/Local/PokeMath/images/wartortle.png", "/Local/PokeMath/images/blastoise.png"]
+            img: ["/images/squirtle.png", "/images/wartortle.png", "/images/blastoise.png"]
         }
     };
 
