@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         squirtle: {
             name: ["Squirtle", "Wartortle", "Blastoise"],
-            img: ["PokeMath/images/squirtle.png", "PokeMath/images/wartortle.png", "PokeMath/images/blastoise.png"]
+            img: ["https://thsnyder.github.io/PokeMath/images/squirtle.png", "PokeMath/images/wartortle.png", "PokeMath/images/blastoise.png"]
         }
     };
 
