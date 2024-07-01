@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Pokémon Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Meta Description -->
+    <meta name="description" content="A fun and educational Math Pokémon Game where kids can practice math questions and help their Pokémon evolve. Suitable for 1st to 4th grade levels.">
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Math Pokémon Game">
+    <meta property="og:description" content="A fun and educational Math Pokémon Game where kids can practice math questions and help their Pokémon evolve. Suitable for 1st to 4th grade levels.">
+    <meta property="og:image" content="/Local/PokeMath/images/pokemath-social-share.png">
+    <meta property="og:url" content="URL to your game's website">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Math Pokémon Game">
+    <meta name="twitter:description" content="A fun and educational Math Pokémon Game where kids can practice math questions and help their Pokémon evolve. Suitable for 1st to 4th grade levels.">
+    <meta name="twitter:image" content="/Local/PokeMath/images/pokemath-social-share.png">
+
+    <!-- Favicon -->
+    <link rel="icon" href="URL to your favicon" type="/Local/PokeMath/images/pokemath-favicon.png">
+
+    <!-- Author -->
+    <meta name="author" content="Tom Snyder">
+
+    <!-- Keywords -->
+    <meta name="keywords" content="Math, Pokémon, Game, Educational, Kids, 1st Grade, 2nd Grade, 3rd Grade, 4th Grade, Math Practice">
+    <style>
+        .fade-out {
+            animation: fadeOut 2s forwards;
+        }
+        .fade-in {
+            animation: fadeIn 2s forwards;
+        }
+        .bounce-out {
+            animation: bounceOut 2s forwards;
+        }
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes bounceOut {
+            20% { transform: scale(1.1); }
+            50%, 55% { transform: translateY(-30px); }
+            100% { opacity: 0; transform: translateY(2000px); }
+        }
+        .check-container {
+            position: relative;
+        }
+        .check-mark {
+            margin-left: 8px; /* Adjust this value as needed */
+            font-size: 1.5rem;
+        }
+        .pulse-animation {
+            animation: pulse 1s ease-in-out;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .hidden-container {
+            display: none;
+        }
+        .background-image {
+            background-image: url('/Local/PokeMath/images/background.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen background-image">
+
+    <div id="start-screen" class="text-center">
+        <h1 class="text-3xl font-bold mb-4">Welcome to the PokéMath Game!</h1>
+        <p class="mb-4">Answer math questions correctly to help your Pokémon evolve!</p><br> 
+		  <h1 class="text-2xl font-bold mb-4">Choose Your Grade Level</h1>
+        <form id="grade-form" class="mb-4">
+            <label>
+                <input type="radio" name="grade" value="1st_grade" required> 1st Grade
+            </label>
+            <label>
+                <input type="radio" name="grade" value="2nd_grade"> 2nd Grade
+            </label>
+            <label>
+                <input type="radio" name="grade" value="3rd_grade"> 3rd Grade
+            </label>
+            <label>
+                <input type="radio" name="grade" value="4th_grade"> 4th Grade
+            </label>
+        </form>
+        <h1 class="text-2xl font-bold mb-4">Choose Your Pokémon</h1>
+        <div id="pokedex" class="bg-white p-4 mt-4 rounded-md shadow-lg">
+            <h2 class="text-xl font-bold mb-2">Pokedex</h2>
+            <div id="pokedex-content" class="flex justify-center">
+                <!-- Initial Pokémon will be inserted here -->
+                <div class="starter-btn mx-2 cursor-pointer" data-pokemon="bulbasaur">
+                    <img src="/Local/PokeMath/images/bulbasaur.png" alt="Bulbasaur" class="w-24 h-24 mx-auto">
+                    <p>Bulbasaur</p>
+                </div>
+                <div class="starter-btn mx-2 cursor-pointer" data-pokemon="charmander">
+                    <img src="/Local/PokeMath/images/charmander.png" alt="Charmander" class="w-24 h-24 mx-auto">
+                    <p>Charmander</p>
+                </div>
+                <div class="starter-btn mx-2 cursor-pointer" data-pokemon="squirtle">
+                    <img src="/Local/PokeMath/images/squirtle.png" alt="Squirtle" class="w-24 h-24 mx-auto">
+                    <p>Squirtle</p>
+                </div>
+            </div>
+        </div>
+        <button id="set-free" class="bg-red-500 text-white p-2 rounded mt-4">Set Pokémon Free</button>
+    </div>
+
+    <div id="game-screen" class="hidden bg-white p-4 mt-4 rounded-md shadow-lg">
+        <h2 id="evolution-message" class="text-2xl font-bold text-red-600 hidden">Your Pokémon is evolving!</h2>
+        <div>
+            <div class="flex justify-between items-center mb-4">
+                <img id="pokemon-img" src="" alt="Pokemon" class="w-24 h-24 p-4">
+                <div class="bg-gray-200 w-full rounded-full h-4 mt-2">
+                    <div id="experience-meter" class="bg-green-500 h-4 rounded-full" style="width: 0;"></div>
+                </div>
+                <div id="ratio" class="text-sm mt-1">0/5</div>
+            </div>
+            <div class="text-xl p-4 flex items-center" id="math-question-container">
+                <div id="math-question"></div>
+                <span id="check-mark" class="check-mark hidden">✔️</span>
+            </div>
+        </div>
+        <div class="flex items-center check-container">
+            <input type="number" id="answer-input" class="border border-gray-300 p-2 rounded" placeholder="Your Answer">
+            <button id="submit-answer" class="bg-blue-500 text-white p-2 rounded ml-2">Submit</button>
+            <button id="skip-question" class="border border-blue-500 text-blue-500 bg-white p-2 rounded ml-2">Skip</button>
+        </div>
+    </div>
+    <button id="back-home" class="bg-red-500 text-white p-2 rounded mt-4 hidden">Back to Home</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
