@@ -2,6 +2,8 @@
 
 A fun and educational Math Pokémon Game where kids can practice math questions and help their Pokémon evolve. Suitable for 1st to 4th grade levels.
 
+<img src="images/pokemath-social-share.png"></img>
+
 ## Table of Contents
 
 - [Game Description](#game-description)
