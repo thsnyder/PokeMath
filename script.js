@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const pokemonData = {
         bulbasaur: {
             name: ["Bulbasaur", "Ivysaur", "Venusaur"],
-            img: ["/images/bulbasaur.png", "/images/ivysaur.png", "/images/venusaur.png"]
+            img: ["images/bulbasaur.png", "images/ivysaur.png", "images/venusaur.png"]
         },
         charmander: {
             name: ["Charmander", "Charmeleon", "Charizard"],
