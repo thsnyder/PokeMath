@@ -24,15 +24,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const pokemonData = {
         bulbasaur: {
             name: ["Bulbasaur", "Ivysaur", "Venusaur"],
-            img: ["PokeMath/images/bulbasaur.png", "/PokeMath/images/ivysaur.png", "/PokeMath/images/venusaur.png"]
+            img: ["PokeMath/images/bulbasaur.png", "PokeMath/images/ivysaur.png", "PokeMath/images/venusaur.png"]
         },
         charmander: {
             name: ["Charmander", "Charmeleon", "Charizard"],
-            img: ["/PokeMath/images/charmander.png", "/PokeMath/images/charmeleon.png", "/PokeMath/images/charizard.png"]
+            img: ["PokeMath/images/charmander.png", "PokeMath/images/charmeleon.png", "PokeMath/images/charizard.png"]
         },
         squirtle: {
             name: ["Squirtle", "Wartortle", "Blastoise"],
-            img: ["/PokeMath/images/squirtle.png", "/PokeMath/images/wartortle.png", "/PokeMath/images/blastoise.png"]
+            img: ["PokeMath/images/squirtle.png", "PokeMath/images/wartortle.png", "PokeMath/images/blastoise.png"]
         }
     };
 
